@@ -27,4 +27,5 @@ Library Management System implemented using Django Framework.
 
 # Note
 
--Create a new user for yourself while running this program and give librarian status to it.
+- Create a new user for yourself while running this program and give librarian status to it to get a better understanding of the project.
+- Few Features have not been implemented like verification on sign-up.
