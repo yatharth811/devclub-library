@@ -8,6 +8,7 @@ Library Management System implemented using Django Framework.
 - Login also possible through Github.
 - Search Books by Title
 - Librarian can add book, edit book details and students can request books (if available).
+- Librarians can respond to issue requests by students
 
 # Requirements
 - Python
