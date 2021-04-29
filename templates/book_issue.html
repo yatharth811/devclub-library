@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if request.user.profile.is_librarian %}
+<style>
+tr,td,th{
+    text-align: center;
+}
+h3{
+    color : green;
+}
+</style>
+<a href={% url 'issue_books' %}>Remember : Click here to reload</a>
+<br><br><hr>
+<h3>Issue Requests From Students</h3>
+<table border="1" width="800">
+    <tr>
+    <th>Book</th>
+    <th>Requested By</th>
+    <th>Request Date</th>
+    <th>Response</th>
+    </tr>
+        {% for book_request in book_requests %}
+        <tr>
+        <td>{{book_request.book}}</td>
+        <td>{{book_request.requested_by}}</td>
+        <td>{{book_request.request_date}}</td>
+        <td><a href={% url 'accept_request' book_request.id %}>Issue Book</a> || <a href={% url 'reject_request' book_request.id %}>Reject Request</a></td>
+        </tr>
+        {% endfor %}
+    
+</table>
+<br><br><hr>
+
+<h3>Accepted Requests</h3>
+<table border="1" width="800">
+    <tr>
+    <th>Book</th>
+    <th>Borrowed By</th>
+    <th>Borrow Date</th>
+    <th>Response</th>
+    </tr>
+        {% for book_request in accepted %}
+        <tr>
+        <td>{{book_request.book}}</td>
+        <td>{{book_request.requested_by}}</td>
+        <td>{{book_request.request_date}}</td>
+        <td><a href={% url 'return_request' book_request.id %} >Return</a></td>
+        </tr>
+        {% endfor %}
+    
+</table><br>
+<a href={% url 'dashboard' %}>Back To Dashboard</a>
+{% else %}
+<h2>Return Form Will Be Floated Here!</h2>
+{% endif %}
+{% endblock content %}

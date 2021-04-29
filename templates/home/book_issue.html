@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if request.user.profile.is_librarian %}
+<style>
+tr,td,th{
+    text-align: center;
+}
+</style>
+<table border="1" width="800">
+    <tr>
+    <th>Book</th>
+    <th>Requested By</th>
+    <th>Request Date</th>
+    <th>Response</th>
+    </tr>
+        {% for book_request in book_requests %}
+        <tr>
+        <td>{{book_request.book}}</td>
+        <td>{{book_request.requested_by}}</td>
+        <td>{{book_request.request_date}}</td>
+        <td><a href="#">Issue Book</a> || <a href="{% url "reject_request" bookrequest.id %}">Reject Request</a></td>
+        </tr>
+        {% endfor %}
+    
+</table>
+{% else %}
+<h2>Form Will Be Floated Here!</h2>
+{% endif %}
+{% endblock content %}

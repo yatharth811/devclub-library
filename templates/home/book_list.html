@@ -1,0 +1,16 @@
+
+
+{% extends "base.html" %}
+
+{% block content %}
+    <div><h2>Books</h2></div>
+    <a href="{% url 'searchbooks' %}">Search Books</a>
+    <ol>
+        {% for book in object_list %}
+            <li><a href="{% url 'bookspecific' book.id %}">{{ book.title}} </a></li>
+        {% endfor %}
+    </ol>
+    <div>
+        <a class="dashbd" style="color : red;" href={% url 'dashboard' %}>Back to Dashboard</a>
+    </div>
+{% endblock %}

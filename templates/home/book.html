@@ -1,0 +1,30 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+    <div><h2>Book</h2></div>
+    {% if request.user.profile.is_librarian %}
+        <a href={% url 'editbook' bookitem.id %}>Edit</a>
+    {% endif %}
+    {% if bookitem.is_available and request.user.profile.is_student %}
+    <h3><a href={% url 'request_book' bookitem.id %}>Request This Book</a></h3>
+    {% endif %}
+    <div style="display: flex; align-items: center;">
+        <img src={{bookitem.img}} style="height: 20rem; width: 15rem; object-fit: cover;">
+        <ul style="list-style-type: none; font-size: 1.1rem;">
+            <li style="font-size: 1.25rem;"><b>Title:</b> {{bookitem.title}}</li>
+            <li><b>Author:</b> {{bookitem.author}}</li>
+            <li><b>Publisher:</b> {{bookitem.publisher}}</li>
+            <li><b>Genre:</b> {{bookitem.genre}}</li>
+            <li><b>Summary:</b> {{bookitem.summary}}</li>
+            <li><b>ISBN:</b> {{bookitem.isbn}}</li>
+            {% if bookitem.is_available %}
+            <li><b>Status:</b>Available</li>
+            {% else %}
+            <li><b>Status:</b>Not Available</li>
+            {% endif %}
+        </ul>
+    </div>
+    <a href={% url 'booklist'%}>Return To Books' Page</a>
+    <a href={% url 'dashboard' %}>Back To Dashboard</a>
+{% endblock %}
