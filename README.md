@@ -24,3 +24,7 @@ Library Management System implemented using Django Framework.
 | admin    |pass@1234 | admin+librarian | 
 | rickandmorty |  pass@1234  | student |
 | scoobydoo | pass@1234 | student |
+
+# Note
+
+-Create a new user for yourself while running this program and give librarian status to it.
