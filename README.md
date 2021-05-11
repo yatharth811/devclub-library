@@ -29,3 +29,8 @@ Library Management System implemented using Django Framework.
 
 - Create a new user for yourself while running this program and give librarian status to it to get a better understanding of the project.
 - Few Features have not been implemented like verification on sign-up.
+- To test the emails on sign up and forgot password update following variables in settings.py in 'home' folder. (Email ID used before got banned after submission (29-04-2021).)
+
+    `EMAIL_HOST_USER = "<email-id-from-which-you-will-receive-mails>"`
+
+    `EMAIL_HOST_PASSWORD = "<password>"`
